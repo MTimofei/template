@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  # db:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_DB: postgres
+  #   volumes:
+  #     - db-data:/var/lib/postgresql/data/
+
+  first:
+    image: first:latest
+    ports:
+      - "8010:10000"
+    # depends_on:
+    #   - db
+
+  secoond:
+    image: second:latest
+    ports:
+        - "8020:10000"
+    # depends_on:
+    #   - db
+
+  third:
+    image: third:latest
+    ports:
+        - "8030:10000"
+    # depends_on:
+    #   - db
+
+  fourth:
+    image: fourth:latest
+    ports:
+        - "8040:10000"
+    # depends_on:
+    #   - db
+
+
+# volumes:
+#   db-data:
