@@ -1,3 +1,15 @@
-FROM golang:1.21 AS builder
+FROM golang:1.22 AS builder
 
-FROM alpine:latest AS final
+WORKDIR /builder
+COPY . .
+RUN go mod download
+
+RUN go build -o ./bin/app ./cmd/first/main.go
+
+FROM alpine:latest AS runner
+
+expose 10000
+
+# CMD ["go", "run", "cmd/first/main.go"]
+COPY --from=builder /builder/bin/app /
+CMD ["app"]

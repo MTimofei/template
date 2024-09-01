@@ -3,7 +3,7 @@ package controller
 import (
 	"net/http"
 	"template/internal/controller/contract"
-	httpserver "template/internal/controller/httpServer"
+	"template/internal/controller/httpserver"
 	"template/internal/controller/httpserver/api/v1/handler"
 	"template/internal/controller/httpserver/api/v1/router"
 )
